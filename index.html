@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>SYSTEM ALERT</title>
+<style>
+  body {
+    background: black;
+    color: #00ff66;
+    font-family: monospace;
+    padding: 20px;
+  }
+  .cursor {
+    animation: blink 1s infinite;
+  }
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div id="terminal"></div><span class="cursor">█</span>
+
+<script>
+const lines = [
+  "Inicializando protocolo de segurança...",
+  "Conectando ao servidor remoto █▒▒▒▒▒▒▒▒▒ 12%",
+  "Conexão estabelecida.",
+  "Escaneando dispositivo...",
+  "⚠ ALERTA: atividade suspeita detectada",
+  "Coletando pacotes de dados...",
+  "IP identificado: 192.168.xxx.xxx",
+  "Tentativa de acesso root...",
+  "Falha na contenção.",
+  "Transferindo arquivos █████▒▒▒▒▒ 67%",
+  "⚠ SISTEMA COMPROMETIDO",
+  "",
+  "Calma 😅",
+  "Isso foi apenas uma simulação.",
+  "Nunca escaneie QR Codes ou clique em links desconhecidos."
+];
+
+let i = 0;
+const terminal = document.getElementById("terminal");
+
+function typeLine() {
+  if (i < lines.length) {
+    terminal.innerHTML += lines[i] + "<br>";
+    i++;
+    setTimeout(typeLine, 700);
+  }
+}
+
+typeLine();
+</script>
+
+</body>
+</html>
